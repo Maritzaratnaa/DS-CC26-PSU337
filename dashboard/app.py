@@ -1,15 +1,19 @@
 import streamlit as st
+import os
 import pandas as pd
 import ast
 import plotly.express as px
 from collections import Counter
 
+BASE_DIR = os.path.dirname(__file__)
+file_path = os.path.join(BASE_DIR, "data_preprocessed.csv")
+
+df = pd.read_csv(file_path)
+
 st.set_page_config(
     page_title="Dashboard Analisis Skill Lowongan IT",
     layout="wide"
 )
-
-df = pd.read_csv("data_preprocessed.csv")
 
 def convert_to_list(x):
     if isinstance(x, list):
